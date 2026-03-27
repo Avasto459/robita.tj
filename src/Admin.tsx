@@ -522,8 +522,8 @@ const Admin = ({ config, onSave }: { config: SiteConfig, onSave: (newConfig: Sit
                       </div>
                       <div className="grid grid-cols-8 gap-2">
                         {[
-                          'rocket_launch', 'analytics', 'security', 'support_agent', 
-                          'devices', 'payments', 'cloud', 'speed', 'shield', 
+                         'support_agent', 'psychology', 'lyrics', 'gavel', 
+                          'lightbulb', 'favorite', 'textsms', 'mood', 'psychology', 
                           'trending_up', 'account_balance', 'api', 'storage', 
                           'psychology', 'lightbulb', 'engineering', 'hub', 'network_check'
                         ].map(iconName => (
