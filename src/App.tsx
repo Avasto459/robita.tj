@@ -1128,8 +1128,11 @@ export default function App() {
   useEffect(() => {
     const fetchConfig = async () => {
       try {
-        const res = await fetch('/api/config');
-        const data = await res.json();
+        const data = {
+          botName: "Robita",
+          apiUrl: "",
+          active: true
+        };
         setConfig(data);
       } catch (err) {
         console.error(err);
@@ -1138,7 +1141,6 @@ export default function App() {
       }
     };
     fetchConfig();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
