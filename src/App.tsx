@@ -1125,7 +1125,7 @@ export default function App() {
   const [isAdmin, setIsAdmin] = useState(window.location.pathname === '/admin');
   const [lang, setLang] = useState<Language>('ru');
 
-  useEffect(() => {
+ useEffect(() => {
     const fetchConfig = async () => {
       try {
         const data = {
@@ -1140,7 +1140,9 @@ export default function App() {
         setLoading(false);
       }
     };
+    
     fetchConfig();
+  }, []); // <--- ИНҶОРО ДИҚҚАТ КУНЕД! Бояд ҳамин хел қавсҳо ва вергул бошад.
 
   useEffect(() => {
     const handleScroll = () => {
