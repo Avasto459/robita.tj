@@ -105,24 +105,14 @@ const Admin = ({ config, onSave }: { config: SiteConfig, onSave: (newConfig: Sit
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch('/api/config', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(localConfig)
-      });
-      if (res.ok) {
-        onSave(localConfig);
-        setShowSuccess(true);
-        setHasUnsavedChanges(false); // Reset unsaved changes flag
-        setTimeout(() => setShowSuccess(false), 3000);
-        console.log('✅ Config saved successfully');
-      } else {
-        throw new Error('Failed to save');
-      }
+      // Бекенд нест, бинобар ин мустақиман маълумотро локалӣ сабт мекунем
+      onSave(localConfig);
+      setIsSaving(false);
+      setHasUnsavedChanges(false);
+      setTimeout(() => setShowSuccess(false), 3000);
+      console.log('✅ Config saved successfully');
     } catch (err) {
-      console.error('❌ Save error:', err);
-      alert('Error saving changes. Please try again.');
-    } finally {
+      console.error('Error saving config:', err);
       setIsSaving(false);
     }
   };
